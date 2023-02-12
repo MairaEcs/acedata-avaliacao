@@ -133,7 +133,7 @@ btnFibonacci.addEventListener("click", function(e){
     var count = valorN;
     
 
-    if(valorN == 0) {
+    if(valorN <= 0) {
         alert("Digite um valor maior que zero (0)!");
     } else {
         while (count) {
@@ -145,21 +145,21 @@ btnFibonacci.addEventListener("click", function(e){
 
             count--;
         }
+
+        if(sequencia.includes(valorN) || valorN <= 3){
+            verificar = "faz";
+        } else {
+            verificar = "não faz";
+        }
+        
+        let resposta = `
+            <p>Sequência:</p>
+            <p>${sequencia.join(', ')}</p>
+            <p>O valor digitado ${valorN}, ${verificar} parte da sequência de Fibonacci.</p>
+        `;
+
+        document.getElementById('container-fibonacci').innerHTML = resposta;
     }
 
-    console.log(valorN);
-
-    if(sequencia.includes(valorN)){
-        verificar = "faz";
-    } else {
-        verificar = "não faz";
-    }
     
-    let resposta = `
-        <p>Sequência:</p>
-        <p>${sequencia.join(', ')}</p>
-        <p>O valor digitado ${valorN}, ${verificar} parte da sequência de Fibonacci.</p>
-    `;
-
-    document.getElementById('container-fibonacci').innerHTML = resposta;
 });
