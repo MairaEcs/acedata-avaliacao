@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+section {
+    border: 1px solid black;
+    text-align: center;
+    margin: 3%;
+    height: 92vh;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1 {
+    display: inline-block;
+    margin: 0;
+    transform: translateY(-50%);
+    background: #fff;
+    padding: 0 .5em;
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 2%;
+}
+
+.container-conteudo {
+    margin: 0 auto;
+    text-align: left;
+    width: 30%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+
+.container-conteudo input {
+    margin-bottom: 3%;
+    height: 5vh;
+    padding: 2%;
+}
+
+input::placeholder {
+    color: #4b4b4b;
+}
+
+.btn {
+    cursor: pointer;
+    border: none;
+    border-radius: 25px;
+    height: 5vh;
+}
+
+table {
+    width: 100%;
+}
+
+
+
+#container-calculo {
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    border: 1px solid #00B241;
+}
+
+#container-calculo input {
+    background-color: #CAF0CB;
+    border: none;
+}
+
+#btn-calcular {
+    background-color: #00B241;
+    color: #ffffff;
+}
+
+#tabela-salario th {
+    background-color: #CAF0CB;;
+}
+
+
+
+#btn-prompt {
+    background-color: #FFC0C7;
+    padding: 1%;
+    text-transform: uppercase;
+}
+
+#btn-prompt:hover {
+    background-color: #ff566a;
+}
+
+#tabela-numeros td {
+    background-color: #FFC0C7;
+    padding: 2%;
+}
+
+
+
+#container-valor {
+    display: flex;
+}
+
+#container-valor input {
+    margin: 0 2%;
+}
+
+#btn-mostrar {
+    background-color: #FFF4A3;
+    padding: 2%;
+}
+
+#btn-mostrar:hover {
+    background-color: #ffea4e;
+}
+
+#container-fibonacci p:nth-child(2) {
+    margin: 2% 0 8%;
+    background-color: #383b40;
+    color: #fff;
+    padding: 3%;
+}
