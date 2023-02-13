@@ -74,22 +74,30 @@ let btnPrompt = document.getElementById('btn-prompt');
 btnPrompt.addEventListener('click', (e) => {
     var numDigitados = prompt('Informe a quantidade de números a ser digitada: ');
     var numeros = [];
-    var maior;
-    var menor;
+    var maior, menor, sMaior;
+    var count = 1;
+    var novoArray = [];
 
     if(numDigitados <= 0) {
         alert("Informe um valor maior que zero (0)!");
     } else {
         while(numDigitados) {
-            var num = prompt('Digite o valor: ');
+            var num = prompt('Digite o ' + count + '° valor: ');
             numDigitados--;
-        
+            
             numeros.push(num);
         
-            maior = Math.max(...numeros);
-            menor = Math.min(...numeros);
+            novoArray.push(num);
+            count++;
             
         }
+
+        maior = Math.max(...numeros);
+        menor = Math.min(...numeros);
+
+        novoArray.sort((a, b) => a-b).pop();
+        sMaior = Math.max(...novoArray);
+        
         let resultado = `
         <table id="tabela-numeros">
             <tr>
@@ -101,6 +109,10 @@ btnPrompt.addEventListener('click', (e) => {
                 <td>${maior}</td>
             </tr>
             <tr>
+                <td>Segundo maior valor</td>
+                <td>${sMaior}</td>
+            </tr>
+            <tr>
                 <td>Menor valor</td>
                 <td>${menor}</td>
             </tr>
@@ -109,8 +121,6 @@ btnPrompt.addEventListener('click', (e) => {
     
         document.getElementById('container-prompt').innerHTML = resultado;
     }
-    
-    
     
 });
 
@@ -127,8 +137,9 @@ b) Indique se N faz parte da sequência de Fibonacci.
 let btnFibonacci = document.getElementById('btn-mostrar');
 btnFibonacci.addEventListener("click", function(e){
     var valorN = parseInt(document.getElementById('valor-n').value);
-    var f1 = 0, f2 = 1, fn;
+    var f1 = 0, f2 = 1, fn, f = 1;
     var sequencia = [];
+    var sequencia2 = [];
     var verificar;
     var count = valorN;
     
@@ -137,12 +148,29 @@ btnFibonacci.addEventListener("click", function(e){
         alert("Digite um valor maior que zero (0)!");
     } else {
         while (count) {
+            if(f2 % 2 == 0) {
+                sequencia2.push(f2);
+                fn = f + f1 + f2; 
+                f = f1;
+                f1 = f2; 
+                f2 = fn;
+            } else {
+                sequencia2.push(f2);
+                fn = f1 + f2;
+                f = f1;
+                f1 = f2;
+                f2 = fn;
+            }
+             
+            count--;
+        }
+        f1 = 0, f2 = 1, fn, f = 1;
+        count = valorN;
+        while (count) {
             sequencia.push(f2);
-
             fn = f1 + f2;
             f1 = f2;
             f2 = fn;
-
             count--;
         }
 
@@ -156,6 +184,9 @@ btnFibonacci.addEventListener("click", function(e){
             <p>Sequência:</p>
             <p>${sequencia.join(', ')}</p>
             <p>O valor digitado ${valorN}, ${verificar} parte da sequência de Fibonacci.</p>
+            <br>
+            <p>Nova sequência:</p>
+            <p>${sequencia2.join(', ')}</p>
         `;
 
         document.getElementById('container-fibonacci').innerHTML = resposta;

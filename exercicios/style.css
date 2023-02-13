@@ -115,7 +115,7 @@ table {
     background-color: #ffea4e;
 }
 
-#container-fibonacci p:nth-child(2) {
+#container-fibonacci p:nth-child(2), #container-fibonacci p:last-child {
     margin: 2% 0 8%;
     background-color: #383b40;
     color: #fff;
